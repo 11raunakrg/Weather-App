@@ -43,11 +43,13 @@ async function checkWeather(city) {
 
 searchBtn.addEventListener("click", () => {
   checkWeather(searchBox.value);
+  searchBox.value = "";
 });
 
-document.getElementById("input").addEventListener("keydown", (event) => {
+searchBox.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
-    const city = document.getElementById("input").value;
+    const city = searchBox.value;
     checkWeather(city);
+    searchBox.value = "";
   }
 });
